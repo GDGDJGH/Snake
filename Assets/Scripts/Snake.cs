@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
+
 using TMPro;
 
 public class Snake : MonoBehaviour
@@ -50,12 +50,12 @@ public class Snake : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Food"){
+            GetComponent<AudioSource>().Play();
             Grow();
             scoreNumber += 10;
             score.text = scoreNumber.ToString();
-        }else if (other.tag == "Wall" || other.tag == "Body"){
+        }else if (other.tag == "Wall" || other.tag == "Body"){       
             ResetState();
-
         }
         
     }
