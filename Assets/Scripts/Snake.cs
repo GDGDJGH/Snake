@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Snake : MonoBehaviour
@@ -12,6 +12,8 @@ public class Snake : MonoBehaviour
     int scoreNumber;
 
     [SerializeField] TextMeshProUGUI score;
+    //[SerializeField] TextMeshProUGUI endGameScore;
+    //int endGameScoreNumber;
     
     private void Start() {
         this.scoreNumber = 0;
@@ -53,9 +55,14 @@ public class Snake : MonoBehaviour
             GetComponent<AudioSource>().Play();
             Grow();
             scoreNumber += 10;
+            //endGameScoreNumber += 10;
+            
             score.text = scoreNumber.ToString();
+            
         }else if (other.tag == "Wall" || other.tag == "Body"){       
-            ResetState();
+            
+            SceneManager.LoadScene(2);
+            //endGameScore.text = endGameScoreNumber.ToString();
         }
         
     }
@@ -85,5 +92,15 @@ public class Snake : MonoBehaviour
         }   
 
               
+    }
+
+    public void LoadEndMenu(){
+        SceneManager.LoadScene(2);
+        
+    }
+
+    public void LoadNewGame(){
+        SceneManager.LoadScene(1);
+        ResetState();
     }
 }

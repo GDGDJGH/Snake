@@ -18,9 +18,7 @@ public class SceneLoaderScript : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void LoadNewGame(){
-        SceneManager.LoadScene(1);
-    }
+    
 
     public void QuitGame(){
         Application.Quit();
