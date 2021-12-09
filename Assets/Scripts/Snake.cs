@@ -16,7 +16,7 @@ public class Snake : MonoBehaviour
     //int endGameScoreNumber;
     
     private void Start() {
-        this.scoreNumber = 0;
+       // this.scoreNumber = 0;
         
         ResetState();
     }
@@ -46,7 +46,7 @@ public class Snake : MonoBehaviour
         segments.Clear();
         segments.Add(this.transform);
         this.transform.position = Vector3.zero;
-        scoreNumber = 0;
+        //scoreNumber = 0;
         score.text = scoreNumber.ToString();
     }
 
