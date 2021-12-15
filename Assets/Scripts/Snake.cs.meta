@@ -3,7 +3,11 @@ guid: 30939678b1302c1488f44c3b0afc952c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - segmentPrefab: {instanceID: 0}
+  - appleEat: {instanceID: 0}
+  - crash: {instanceID: 0}
+  - score: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

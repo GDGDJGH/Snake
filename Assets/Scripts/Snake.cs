@@ -10,10 +10,12 @@ public class Snake : MonoBehaviour
     private List<Transform> segments = new List<Transform>();
     public Transform segmentPrefab;
     int scoreNumber;
+    [SerializeField] AudioClip appleEat;
+    [SerializeField] AudioClip crash;
 
     [SerializeField] TextMeshProUGUI score;
     //[SerializeField] TextMeshProUGUI endGameScore;
-    //int endGameScoreNumber;
+    int endGameScoreNumber;
     
     private void Start() {
        // this.scoreNumber = 0;
@@ -52,16 +54,18 @@ public class Snake : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Food"){
-            GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().PlayOneShot(appleEat);
             Grow();
             scoreNumber += 10;
-            //endGameScoreNumber += 10;
+            endGameScoreNumber += 10;
             
             score.text = scoreNumber.ToString();
             
-        }else if (other.tag == "Wall" || other.tag == "Body"){       
-            
+        }else if (other.tag == "Wall" || other.tag == "Body"){      
+
+            GetComponent<AudioSource>().PlayOneShot(crash);
             SceneManager.LoadScene(2);
+            ResetState();
             //endGameScore.text = endGameScoreNumber.ToString();
         }
         
@@ -101,6 +105,10 @@ public class Snake : MonoBehaviour
 
     public void LoadNewGame(){
         SceneManager.LoadScene(1);
-        ResetState();
+        
+    }
+
+    public int GetScore(){
+        return endGameScoreNumber;
     }
 }
