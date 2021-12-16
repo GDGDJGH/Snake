@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class Snake : MonoBehaviour
+public class Snake2 : MonoBehaviour
 {
     private Vector2 direction = Vector2.right;
     private List<Transform> segments = new List<Transform>();
@@ -14,13 +14,11 @@ public class Snake : MonoBehaviour
     [SerializeField] AudioClip crash;
 
     [SerializeField] TextMeshProUGUI score;
-    float startingY;
     int endGameScoreNumber;
     
     private void Start() {
   
        ResetState();
-       
        
        
     }
@@ -74,23 +72,23 @@ public class Snake : MonoBehaviour
     }
 
     private void HandleInput(){
-        if(Input.GetKeyDown(KeyCode.UpArrow)){
+        if(Input.GetKeyDown(KeyCode.W)){
              if(direction != Vector2.down){
                    direction = Vector2.up;
                    transform.eulerAngles = new Vector3(0, 0, 0);
         
                } 
-        }else if(Input.GetKeyDown(KeyCode.DownArrow)){
+        }else if(Input.GetKeyDown(KeyCode.S)){
               if(direction != Vector2.up){
                 direction = Vector2.down;
                 transform.eulerAngles = new Vector3(0, 0, 180);
                }       
-        }else if(Input.GetKeyDown(KeyCode.LeftArrow)){
+        }else if(Input.GetKeyDown(KeyCode.A)){
               if(direction != Vector2.right){
                 direction = Vector2.left;
                 transform.eulerAngles = new Vector3(0, 0, 90);
                } 
-        }else if(Input.GetKeyDown(KeyCode.RightArrow)){
+        }else if(Input.GetKeyDown(KeyCode.D)){
              if(direction != Vector2.left){
                  direction = Vector2.right;
                  transform.eulerAngles = new Vector3(0, 0, 270);

@@ -20,7 +20,9 @@ public class SceneLoaderScript : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    
+    public void GameForTwo(){
+        SceneManager.LoadScene(4);
+    }
 
     public void QuitGame(){
         Application.Quit();
